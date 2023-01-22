@@ -6,7 +6,7 @@
 /*   By: fbesson <fbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 16:04:04 by fbesson           #+#    #+#             */
-/*   Updated: 2023/01/22 17:34:02 by fbesson          ###   ########.fr       */
+/*   Updated: 2023/01/22 17:54:23 by fbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,18 +67,18 @@ void	signal_received(int sig)
 	(void)sig;
 }
 
-int	main(int argc, char **argv)
+int	main(int ac, char **av)
 {
 	int	pid;
 	int	i;
 
 	i = 0;
-	if (argc != 3)
+	if (ac != 3)
 		exit_msg(1, "usage: ./client [pid] [msg]\n", 28, 0);
 	signal(SIGUSR1, signal_received);
-	pid = ft_atoi(argv[1]);
-	while (argv[2][i])
-		send_char(pid, argv[2][i++]);
+	pid = ft_atoi(av[1]);
+	while (av[2][i])
+		send_char(pid, av[2][i++]);
 	send_char(pid, 0);
 	write(1, "msg received\n", 13);
 }
