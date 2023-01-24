@@ -6,7 +6,7 @@
 /*   By: fbesson <fbesson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 16:04:04 by fbesson           #+#    #+#             */
-/*   Updated: 2023/01/22 17:54:23 by fbesson          ###   ########.fr       */
+/*   Updated: 2023/01/24 14:15:41 by fbesson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	send_char(int pid, char c)
 		else if (kill(pid, SIGUSR2))
 			exit_msg(2, "error: invalid pid\n", 19, 1);
 		c >>= 1;
-		pause();
+		sleep(1);
 	}
 }
 
